@@ -1,0 +1,60 @@
+---
+import { APP_VERSION } from '../lib/i18n';
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+<section class="section" aria-labelledby="ways-title">
+  <div class="section-head">
+    <p class="eyebrow">{t['ways.eyebrow']}</p>
+    <h2 id="ways-title"><Fragment set:html={t['ways.title']} /></h2>
+    <p class="section-lede">{t['ways.lede']}</p>
+  </div>
+
+  <div class="ways-grid">
+    <article class="way-card way-cloud">
+      <div class="way-tag">{t['ways.cloudTag']}</div>
+      <h3>{t['ways.cloudTitle']}</h3>
+      <p class="way-lede">{t['ways.cloudLede']}</p>
+      <ul class="ticks">
+        <li><Fragment set:html={t['ways.cloud1']} /></li>
+        <li><Fragment set:html={t['ways.cloud2']} /></li>
+        <li><Fragment set:html={t['ways.cloud3']} /></li>
+        <li><Fragment set:html={t['ways.cloud4']} /></li>
+      </ul>
+      <div class="way-foot">
+        <a class="btn btn-primary" href="https://app.getcoinio.me/signup">
+          {t['hero.cloudCta']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="way-link" href="https://docs.getcoinio.me/docs/hosted/">{t['ways.cloudDocs']}</a>
+      </div>
+    </article>
+
+    <article class="way-card way-self">
+      <div class="way-tag">{t['ways.selfTag']}</div>
+      <h3>{t['ways.selfTitle']}</h3>
+      <p class="way-lede">{t['ways.selfLede']}</p>
+      <ul class="ticks">
+        <li><Fragment set:html={t['own.data']} /></li>
+        <li><Fragment set:html={t['own.mit']} /></li>
+        <li><Fragment set:html={t['own.docker']} /></li>
+        <li><Fragment set:html={t['own.dokploy']} /></li>
+      </ul>
+      <div class="spec spec-compact" aria-label={t['own.spec']}>
+        <div class="spec-head"><span class="spec-dot"></span>coinio · v{APP_VERSION}</div>
+        <dl>
+          <div><dt>image</dt><dd>ghcr.io/getcoinio/coinio</dd></div>
+          <div><dt>deploy</dt><dd>Docker · Compose · Dokploy</dd></div>
+          <div><dt>port</dt><dd>8080</dd></div>
+          <div><dt>data</dt><dd>/data &nbsp;<span class="dim">(SQLite + logos)</span></dd></div>
+          <div><dt>arch</dt><dd>amd64 · arm64</dd></div>
+          <div><dt>license</dt><dd>MIT</dd></div>
+        </dl>
+      </div>
+    </article>
+  </div>
+</section>

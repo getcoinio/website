@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getMessages, PAGES, type LangDef, type PageSlug } from '../lib/i18n';
+
+interface Props {
+  lang: LangDef;
+  slug: Extract<PageSlug, 'privacy' | 'terms'>;
+}
+
+const { lang, slug } = Astro.props;
+const pg = PAGES.find((p) => p.slug === slug)!;
+const t = getMessages(lang, slug);
+---
+<BaseLayout lang={lang} pg={pg} t={t}>
+  <main id="top" class="sub">
+    <section class="page-hero legal-hero">
+      <nav class="crumbs" aria-label={t['crumb.label']}>
+        <ol>
+          <li><a href={lang.path}>{t['crumb.home']}</a></li>
+          <li><span aria-current="page">{t['crumb.page']}</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow">{t['page.eyebrow']}</p>
+      <h1>{t['page.title']}</h1>
+      <p class="page-lede">{t['page.lede']}</p>
+      <p class="checked">{t['page.updated']}</p>
+    </section>
+
+    <section class="section legal" aria-label={t['page.title']}>
+      <div class="prose legal-body">
+        <Fragment set:html={t['legal.body']} />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

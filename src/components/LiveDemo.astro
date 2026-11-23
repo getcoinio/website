@@ -1,0 +1,79 @@
+---
+interface Props {
+  demoHref: string;
+  t: Record<string, string>;
+}
+
+const { demoHref, t } = Astro.props;
+---
+<section class="demo" id="demo" aria-labelledby="demo-title">
+  <div class="demo-head">
+    <div>
+      <p class="eyebrow">{t['demo.eyebrow']}</p>
+      <h2 id="demo-title"><Fragment set:html={t['demo.title']} /></h2>
+      <p>{t['demo.lede']}</p>
+    </div>
+    <div class="demo-actions">
+      <button class="btn" type="button" data-demo-expand>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg>
+        {t['demo.expand']}
+      </button>
+      <a class="btn" href={demoHref} target="_blank" rel="noopener" data-demo-link>
+        {t['demo.newTab']}
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 3.5h-3v9h9v-3M9.5 2.5h4v4M13.5 2.5 7.5 8.5"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="demo-stage">
+    <div class="demo-glow" aria-hidden="true"></div>
+    <div class="demo-win" role="region" aria-label={t['demo.window']}>
+      <div class="win-bar">
+        <div class="win-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="win-url"><span class="live" aria-hidden="true"></span>{t['demo.url']}</div>
+        <div class="win-tools">
+          <button class="win-tool win-expand" type="button" aria-label={t['demo.expandLabel']} title={t['demo.expand']} data-demo-expand>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg>
+          </button>
+          <a class="win-tool" href={demoHref} target="_blank" rel="noopener" aria-label={t['demo.newTabLabel']} title={t['demo.newTab']} data-demo-link>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 3.5h-3v9h9v-3M9.5 2.5h4v4M13.5 2.5 7.5 8.5"/></svg>
+          </a>
+          <button class="win-tool win-close" type="button" aria-label={t['demo.closeLabel']} title={t['demo.closeTitle']} data-demo-close>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="demo-view">
+        <iframe title={t['demo.window']} data-src="/demo/" loading="lazy" referrerpolicy="same-origin"></iframe>
+        <div class="demo-poster">
+          <img
+            class="is-on"
+            data-theme="dark"
+            src="/assets/dashboard-night.webp"
+            srcset="/assets/dashboard-night-720.webp 720w, /assets/dashboard-night-960.webp 960w, /assets/dashboard-night-1440.webp 1440w, /assets/dashboard-night.webp 2880w"
+            sizes="(max-width: 1280px) 100vw, 1240px"
+            width="2880"
+            height="1800"
+            alt={t['demo.posterAlt']}
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            data-theme="light"
+            src="/assets/dashboard-light.webp"
+            srcset="/assets/dashboard-light-720.webp 720w, /assets/dashboard-light-960.webp 960w, /assets/dashboard-light-1440.webp 1440w, /assets/dashboard-light.webp 2880w"
+            sizes="(max-width: 1280px) 100vw, 1240px"
+            width="2880"
+            height="1800"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          <a class="btn btn-primary demo-open demo-open-m" href={demoHref} data-demo-link>{t['demo.open']}</a>
+        </div>
+      </div>
+    </div>
+    <div class="demo-scrim" data-demo-close aria-hidden="true"></div>
+  </div>
+  <p class="demo-note">{t['demo.note']}</p>
+</section>

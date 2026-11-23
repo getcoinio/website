@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSwitcher from '../../components/HeroSwitcher.astro';
+import LiveDemo from '../../components/LiveDemo.astro';
+import FeaturesGrid from '../../components/FeaturesGrid.astro';
+import TwoWays from '../../components/TwoWays.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { getLangStaticPaths, getMessages, PAGES, type LangDef } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+interface Props {
+  lang: LangDef;
+}
+
+const { lang } = Astro.props;
+const pg = PAGES.find((p) => p.slug === '')!;
+const t = getMessages(lang, '');
+const demoHref = `/demo/?lang=${lang.code}`;
+---
+<BaseLayout lang={lang} pg={pg} t={t}>
+  <main id="top">
+    <HeroSwitcher demoHref={demoHref} t={t} />
+    <LiveDemo demoHref={demoHref} t={t} />
+    <FeaturesGrid lang={lang} t={t} />
+    <TwoWays t={t} />
+    <FaqSection
+      ids={pg.faq}
+      prefix={pg.faqPrefix}
+      eyebrow={t['faq.eyebrow']}
+      title={t['faq.title']}
+      lede={t['faq.lede']}
+      t={t}
+    />
+    <FinalCta t={t}>
+      <p class="final-links">
+        <a href="#install">Docker, Compose, Dokploy, Unraid</a>
+        <span class="dot">·</span>
+        <a href="/install.sh">{t['install.readScript']}</a>
+      </p>
+    </FinalCta>
+  </main>
+</BaseLayout>

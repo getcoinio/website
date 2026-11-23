@@ -1,0 +1,16 @@
+/install /install.sh 200
+# Language paths in other spellings go to the real page
+/pt-BR/* /pt-br/:splat 301
+/pt/* /pt-br/:splat 301
+/zh-CN/* /zh/:splat 301
+/zh-cn/* /zh/:splat 301
+/en/* /:splat 301
+# Deep links into the live demo (a single-page app under /demo/)
+/demo/subscriptions /demo/ 200
+/demo/subscriptions/* /demo/ 200
+/demo/calendar /demo/ 200
+/demo/payments /demo/ 200
+/demo/reports /demo/ 200
+/demo/settings /demo/ 200
+/demo/settings/* /demo/ 200
+/demo/welcome /demo/ 200

@@ -1,0 +1,13 @@
+{
+  "meta.title": "Terms of use — Free Hosted App · Coinio",
+  "meta.description": "Read the plain terms of use for the free hosted Coinio subscription tracker at app.getcoinio.me, including your data ownership, fair use and notice.",
+  "og.title": "Terms of use · Coinio",
+  "og.description": "The terms for using the free, hosted Coinio at app.getcoinio.me.",
+  "crumb.label": "Breadcrumb",
+  "crumb.page": "Terms of use",
+  "page.eyebrow": "Legal",
+  "page.title": "Terms of use",
+  "page.lede": "Plain terms for a free service: your data stays yours, use it fairly, and we tell you well ahead if anything big changes.",
+  "page.updated": "Last updated: 22 November 2026",
+  "legal.body": "<h2>The service</h2>\n<p>Coinio at app.getcoinio.me is offered free of charge as a goodwill project. Coinio is open source, so you can also run it on your own server.</p>\n<h2>Your account</h2>\n<p>Use a real email address you can reach and keep your password to yourself. One person, one account; do not create accounts automatically.</p>\n<h2>Your data</h2>\n<p>What you enter stays yours. You can download it or delete it at any time. Coinio is a tracker, not a bank: it never moves money, and amounts and dates are only as accurate as what you enter.</p>\n<h2>Fair use</h2>\n<p>Do not use Coinio to break the law, send spam through notification channels, probe other systems or overload the service. Each account has reasonable limits, for example on subscriptions and daily emails.</p>\n<h2>Suspension</h2>\n<p>We may suspend or delete accounts that break these terms or put the service or other people at risk. Where we can, we warn you first.</p>\n<h2>No warranty</h2>\n<p>The service is provided as it is. We do our best to keep it running and your data safe, with nightly backups, but we cannot promise it will always be available or free of errors. Do not rely on Coinio as your only record of payments.</p>\n<h2>Liability</h2>\n<p>As far as the law allows, we are not liable for indirect losses, missed payments or lost data arising from use of the service.</p>\n<h2>Changes and ending</h2>\n<p>We may change these terms or stop the service. We give at least 30 days’ notice by email before stopping it, so you have time to download your data.</p>\n<h2>Contact</h2>\n<p><a href=\"mailto:support@getcoinio.me\">support@getcoinio.me</a></p>"
+}

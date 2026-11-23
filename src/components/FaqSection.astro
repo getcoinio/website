@@ -1,0 +1,33 @@
+---
+import { BACKUP_CODE } from '../lib/i18n';
+
+interface Props {
+  ids: string[];
+  prefix: string;
+  eyebrow: string;
+  title: string;
+  lede?: string;
+  t: Record<string, string>;
+}
+
+const { ids, prefix, eyebrow, title, lede, t } = Astro.props;
+---
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="faq">
+    <div class="faq-intro">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 id="faq-title"><Fragment set:html={title} /></h2>
+      {lede && <p><Fragment set:html={lede} /></p>}
+    </div>
+    <div class="faq-list">
+      {ids.map((id) => (
+        <details>
+          <summary><Fragment set:html={t[`${prefix}.${id}.q`]} /></summary>
+          <div class="faq-a">
+            <Fragment set:html={t[`${prefix}.${id}.a`].replace('{{code.backup}}', BACKUP_CODE)} />
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

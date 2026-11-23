@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { getLangStaticPaths, getMessages, PAGES, type LangDef } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+interface Props {
+  lang: LangDef;
+}
+
+const { lang } = Astro.props;
+const pg = PAGES.find((p) => p.slug === 'subscription-tracker-vs-spreadsheet')!;
+const t = getMessages(lang, 'subscription-tracker-vs-spreadsheet');
+const demoHref = `/demo/?lang=${lang.code}`;
+---
+<BaseLayout lang={lang} pg={pg} t={t}>
+  <main id="top" class="sub">
+    <section class="page-hero">
+      <nav class="crumbs" aria-label={t['crumb.label']}>
+        <ol>
+          <li><a href={lang.path}>{t['crumb.home']}</a></li>
+          <li><span aria-current="page">{t['crumb.page']}</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow">{t['page.eyebrow']}</p>
+      <h1>{t['page.title']}</h1>
+      <p class="page-lede">{t['page.lede']}</p>
+      <div class="page-actions">
+        <a class="btn btn-primary" href="https://app.getcoinio.me/signup">
+          {t['hero.cloudCta']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn" href={demoHref} data-demo-link>
+          {t['cta.demo']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg>
+        </a>
+      </div>
+      <p class="checked">{t['page.checked']}</p>
+    </section>
+
+    <section class="section" aria-labelledby="cmp-title">
+      <div class="prose-head">
+        <h2 id="cmp-title">{t['cmp.title']}</h2>
+        <p>{t['cmp.lede']}</p>
+      </div>
+      <div class="table-wrap" role="region" aria-labelledby="cmp-title" tabindex="0">
+        <table class="cmp cmp-2">
+          <thead>
+            <tr>
+              <th scope="col"><span class="vh">{t['table.feature']}</span></th>
+              <th scope="col" class="is-us">Coinio</th>
+              <th scope="col">{t['col.sheet']}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">{t['r.dates']}</th><td class="is-us">{t['r.dates.coinio']}</td><td>{t['r.dates.sheet']}</td></tr>
+            <tr><th scope="row">{t['r.alerts']}</th><td class="is-us">{t['r.alerts.coinio']}</td><td>{t['r.alerts.sheet']}</td></tr>
+            <tr><th scope="row">{t['r.fx']}</th><td class="is-us">{t['r.fx.coinio']}</td><td>{t['r.fx.sheet']}</td></tr>
+            <tr><th scope="row">{t['r.history']}</th><td class="is-us">{t['r.history.coinio']}</td><td>{t['r.history.sheet']}</td></tr>
+            <tr><th scope="row">{t['r.widgets']}</th><td class="is-us">{t['r.widgets.coinio']}</td><td>{t['r.widgets.sheet']}</td></tr>
+            <tr><th scope="row">{t['r.export']}</th><td class="is-us">{t['r.export.coinio']}</td><td>{t['r.export.sheet']}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pick-title">
+      <div class="prose-head">
+        <h2 id="pick-title">{t['pick.title']}</h2>
+        <p>{t['pick.lede']}</p>
+      </div>
+      <div class="cards cards-2">
+        <article class="card">
+          <h3>{t['pick.sheet.title']}</h3>
+          <ul class="ticks">
+            <li>{t['pick.sheet.1']}</li>
+            <li>{t['pick.sheet.2']}</li>
+            <li>{t['pick.sheet.3']}</li>
+          </ul>
+        </article>
+        <article class="card card-us">
+          <h3>{t['pick.coinio.title']}</h3>
+          <ul class="ticks">
+            <li>{t['pick.coinio.1']}</li>
+            <li>{t['pick.coinio.2']}</li>
+            <li>{t['pick.coinio.3']}</li>
+            <li>{t['pick.coinio.4']}</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <FaqSection
+      ids={pg.faq}
+      prefix={pg.faqPrefix}
+      eyebrow={t['nav.faq']}
+      title={t['pfaq.title']}
+      t={t}
+    />
+
+    <FinalCta t={t} title={t['final.pageTitle']} lede={t['final.pageLede']}>
+      <p class="final-links">
+        <a href={demoHref} data-demo-link>{t['cta.demo']}</a>
+        <span class="dot">·</span>
+        <a href={`${lang.path}free-subscription-tracker/`}>{t['footer.free']}</a>
+        <span class="dot">·</span>
+        <a href={`${lang.path}wallos-alternative/`}>{t['footer.wallos']}</a>
+        <span class="dot">·</span>
+        <a href={lang.path}>{t['crumb.home']}</a>
+      </p>
+    </FinalCta>
+  </main>
+</BaseLayout>

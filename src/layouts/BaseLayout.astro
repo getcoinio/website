@@ -1,0 +1,195 @@
+---
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
+import '@fontsource-variable/plus-jakarta-sans';
+import '../styles/global.css';
+import {
+  APP_VERSION,
+  LANGS,
+  ORIGIN,
+  pagePath,
+  plainText,
+  REPO,
+  type LangDef,
+  type PageDef,
+} from '../lib/i18n';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  lang: LangDef;
+  pg: PageDef;
+  t: Record<string, string>;
+}
+
+const { lang, pg, t } = Astro.props;
+const url = ORIGIN + pagePath(lang, pg.slug);
+
+const faqEntities = pg.faq.map((id) => ({
+  '@type': 'Question',
+  name: plainText(t[`${pg.faqPrefix}.${id}.q`]),
+  acceptedAnswer: {
+    '@type': 'Answer',
+    text: plainText(t[`${pg.faqPrefix}.${id}.a`]),
+  },
+}));
+
+const faqSchema =
+  pg.faq.length > 0
+    ? {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        inLanguage: lang.code,
+        url,
+        mainEntity: faqEntities,
+      }
+    : null;
+
+const orgNode = {
+  '@type': 'Organization',
+  '@id': `${ORIGIN}/#org`,
+  name: 'Coinio',
+  url: `${ORIGIN}/`,
+  logo: `${ORIGIN}/assets/favicon-96.png`,
+  email: 'support@getcoinio.me',
+  sameAs: [REPO],
+};
+
+const websiteNode = {
+  '@type': 'WebSite',
+  '@id': `${ORIGIN}/#website`,
+  name: 'Coinio',
+  alternateName: 'getcoinio.me',
+  url: `${ORIGIN}/`,
+  publisher: { '@id': `${ORIGIN}/#org` },
+};
+
+const appNode = {
+  '@type': 'SoftwareApplication',
+  '@id': `${ORIGIN}/#app`,
+  name: 'Coinio',
+  url: `${ORIGIN}/`,
+  description:
+    'Free, open-source subscription and bill tracker with family & shared plans, passkey sign-in, Firefly III sync, multi-currency totals, renewal reminders, MCP server and widgets. Use free at app.getcoinio.me or self-host in one Docker image.',
+  applicationCategory: 'FinanceApplication',
+  applicationSubCategory: 'Subscription tracker',
+  operatingSystem: 'Web, Docker, Linux',
+  softwareVersion: APP_VERSION,
+  isAccessibleForFree: true,
+  license: 'https://opensource.org/licenses/MIT',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  featureList: [
+    'Family & shared subscriptions with equal or custom splits and invite links',
+    'Passwordless Passkey (WebAuthn, Face ID, Touch ID) sign-in',
+    'Two-way Firefly III subscription and payment sync',
+    'Multi-currency totals with daily ECB exchange rates',
+    'Renewal reminders via Email, Telegram, Discord, Slack, ntfy, Gotify, Pushover, webhooks and Apprise',
+    'Built-in MCP server with OAuth for Claude and ChatGPT',
+    'Wallos and Coinio JSON import/export with payment history',
+    'iPhone Scriptable and cross-platform ScriptWidget home screen widgets',
+    'Free hosted cloud (app.getcoinio.me) or self-hosted single Docker image',
+  ],
+  downloadUrl: REPO,
+  installUrl: `${ORIGIN}/install`,
+  screenshot: `${ORIGIN}/assets/dashboard-night.webp`,
+  image: `${ORIGIN}/assets/og.png`,
+  inLanguage: LANGS.map((l) => l.code),
+  publisher: { '@id': `${ORIGIN}/#org` },
+  sameAs: [REPO, 'https://app.getcoinio.me'],
+};
+
+const graphNodes: Record<string, unknown>[] = [];
+if (pg.slug === '') {
+  graphNodes.push(orgNode, websiteNode, appNode);
+  if (faqSchema) graphNodes.push(faqSchema);
+} else {
+  graphNodes.push(orgNode, websiteNode, {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: plainText(t['crumb.home']), item: ORIGIN + lang.path },
+      { '@type': 'ListItem', position: 2, name: plainText(t['crumb.page']), item: url },
+    ],
+  });
+  if (faqSchema) graphNodes.push(faqSchema);
+  if (pg.items) {
+    graphNodes.push({
+      '@type': 'ItemList',
+      '@id': `${url}#list`,
+      name: plainText(t['list.name']),
+      numberOfItems: pg.items.length,
+      itemListElement: pg.items.map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.name,
+        url: it.url,
+      })),
+    });
+  }
+}
+
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graphNodes }).replace(/</g, '\\u003c');
+---
+<!doctype html>
+<html lang={lang.code}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{t['meta.title']}</title>
+  <meta name="description" content={t['meta.description']} />
+  <meta name="theme-color" content="#07080c" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="canonical" href={url} />
+  {LANGS.map((l) => (
+    <link rel="alternate" hreflang={l.code} href={`${ORIGIN}${pagePath(l, pg.slug)}`} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={`${ORIGIN}${pagePath(LANGS[0], pg.slug)}`} />
+  <meta property="og:type" content="website" />
+  <meta name="application-name" content="Coinio" />
+  <meta property="og:site_name" content="Coinio" />
+  <meta property="og:title" content={t['og.title']} />
+  <meta property="og:description" content={t['og.description']} />
+  <meta property="og:url" content={url} />
+  <meta property="og:locale" content={lang.og} />
+  {LANGS.filter((l) => l.code !== lang.code).map((l) => (
+    <meta property="og:locale:alternate" content={l.og} />
+  ))}
+  <meta property="og:image" content={`${ORIGIN}/assets/og.png`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={t['og.title']} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t['og.title']} />
+  <meta name="twitter:description" content={t['og.description']} />
+  <meta name="twitter:image" content={`${ORIGIN}/assets/og.png`} />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon-96.png" sizes="96x96" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <script type="application/ld+json" set:html={jsonLd} />
+  <script is:inline>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('coinio-site-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.dataset.theme = t;
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.content = t === 'light' ? '#f8f8fb' : '#07080c';
+    })();
+  </script>
+</head>
+<body
+  data-copied={t['copy.done']}
+  data-copy-fallback={t['copy.fallback']}
+  data-copy-failed={t['copy.failed']}
+  data-copy={t['copy.label']}
+  data-to-dark={t['theme.toDark']}
+  data-to-light={t['theme.toLight']}
+>
+  <div class="bg" aria-hidden="true"></div>
+  <Header lang={lang} slug={pg.slug} t={t} />
+  <slot />
+  <Footer lang={lang} slug={pg.slug} t={t} />
+  <script src="../scripts/main.ts"></script>
+</body>
+</html>

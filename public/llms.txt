@@ -1,0 +1,40 @@
+# Coinio
+
+> Coinio is a free, open-source (MIT) subscription and bill tracker (v0.4.0). Use the free hosted app at https://app.getcoinio.me (no ads, no tracking, encrypted EU backups) or self-host it as one Docker image with one SQLite file on your own server (VPS, home server, NAS, Raspberry Pi; amd64 and arm64).
+
+Coinio keeps every recurring payment on one page: what is due this week, what is left to pay this month and what the year costs, converted into one main currency with daily exchange rates.
+
+## Features
+
+- Two ways to run it: free hosted cloud at https://app.getcoinio.me (email, passkey, Google or GitHub sign-in; export JSON any time) or self-hosted in one Docker container.
+- Family & shared subscriptions: create a household, add member profiles with perspective-aware family roles (e.g. Mom, Dad, Partner, Child) or invite members via single-use links, split shared plans equally or by custom amounts, filter by "My share" or "Family total", while personal subscriptions stay private.
+- Passwordless Passkey (WebAuthn) sign-in: sign in with Face ID, Touch ID, Windows Hello or a hardware security key on both app.getcoinio.me and self-hosted HTTPS installs.
+- Two-way Firefly III integration: sync subscriptions ↔ bills and payments both ways, with a match preview on connect and a 2-day auto-payment delay to prevent duplicate transactions.
+- Real billing cycles: weekly, monthly or yearly, every N cycles, charged automatically or paid by hand; mark paid, skip a period, pause.
+- Calendar of due dates and reminders before anything renews, by email, Telegram, Discord, Slack, ntfy, Gotify, Pushover, webhook or Apprise, with several reminders per subscription and editable message templates.
+- Any ISO currency per subscription, including zero-decimal ones such as JPY and KRW; totals converted with daily European Central Bank reference rates (via Frankfurter).
+- 161 built-in services with logos, categories and billing cycles; other sites get their own icon.
+- Import from Wallos JSON (including Paid By mapped to household members) or Coinio's own JSON exports (including payment history); export to CSV or JSON.
+- Built-in MCP server (Model Context Protocol) with OAuth at /mcp, so Claude, ChatGPT and other MCP clients can list, add and update subscriptions.
+- Home Screen and Lock Screen widgets: one-step iPhone Scriptable setup and cross-platform ScriptWidget package (iPhone, Android, Mac, Linux).
+- Themes, accent colour, fonts, density, dashboard card order, custom CSS and sandboxed HTML cards.
+- Interface in English, Turkish, German, French, Spanish, Brazilian Portuguese, Simplified Chinese and Japanese.
+
+## Install (Self-Hosted)
+
+- Script: `curl -fsSL https://getcoinio.me/install | sh` (checks for Docker, starts Coinio on port 8080, offers a Cloudflare Tunnel for https)
+- Docker: `docker run -d --name coinio --restart unless-stopped -p 8080:8080 -v coinio-data:/data ghcr.io/getcoinio/coinio:latest`
+- Also: Docker Compose, official Dokploy template (PR merged, one-click deploy coming soon), Unraid Community Applications, CasaOS, Portainer.
+
+## Links
+
+- [Website](https://getcoinio.me/): overview, hosted signup, install commands and FAQ (also in /tr/, /de/, /fr/, /es/, /pt-br/, /zh/, /ja/)
+- [Free hosted app](https://app.getcoinio.me/signup): free online Coinio instance
+- [Free subscription tracker](https://getcoinio.me/free-subscription-tracker/): why Coinio has no ads, no bank credentials and no paywall
+- [Firefly III subscription tracker](https://getcoinio.me/firefly-iii-subscription-tracker/): two-way subscriptions and payments sync with Firefly III
+- [Coinio vs Wallos](https://getcoinio.me/wallos-alternative/): an honest comparison with Wallos and how to import a Wallos export
+- [Self-hosted subscription trackers compared](https://getcoinio.me/self-hosted-subscription-trackers/): Wallos, SubTrackr, Renewlet, Zublo and Coinio side by side
+- [Subscription tracker vs spreadsheet](https://getcoinio.me/subscription-tracker-vs-spreadsheet/): when a spreadsheet is enough and when a tracker pays off
+- [Live demo](https://getcoinio.me/demo/): the real web app running in the browser with sample data
+- [Documentation](https://docs.getcoinio.me/): install, configuration, backups, Firefly III, MCP, widgets
+- [Source code](https://github.com/getcoinio/coinio): MIT license

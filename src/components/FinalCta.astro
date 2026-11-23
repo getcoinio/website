@@ -1,0 +1,29 @@
+---
+interface Props {
+  t: Record<string, string>;
+  title?: string;
+  lede?: string;
+}
+
+const { t, title = t['final.title'], lede = t['final.lede'] } = Astro.props;
+---
+<section class="section final" aria-labelledby="final-title">
+  <h2 id="final-title"><Fragment set:html={title} /></h2>
+  <p class="final-lede">{lede}</p>
+  <div class="final-cta-row">
+    <a class="btn btn-primary btn-lg" href="https://app.getcoinio.me/signup">
+      {t['hero.cloudCta']}
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
+  </div>
+  <div class="term term-solo">
+    <div class="code-row">
+      <pre class="wrap"><code><span class="p">curl -fsSL <span class="nw">https://getcoinio.me/install | sh</span></span></code></pre>
+      <button class="copy" type="button" aria-label={t['copy.command']}>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></svg>
+        <span>{t['copy.label']}</span>
+      </button>
+    </div>
+  </div>
+  <slot />
+</section>

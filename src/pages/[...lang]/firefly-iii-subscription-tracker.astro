@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { getLangStaticPaths, getMessages, PAGES, type LangDef } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+interface Props {
+  lang: LangDef;
+}
+
+const { lang } = Astro.props;
+const pg = PAGES.find((p) => p.slug === 'firefly-iii-subscription-tracker')!;
+const t = getMessages(lang, 'firefly-iii-subscription-tracker');
+const demoHref = `/demo/?lang=${lang.code}`;
+---
+<BaseLayout lang={lang} pg={pg} t={t}>
+  <main id="top" class="sub">
+    <section class="page-hero">
+      <nav class="crumbs" aria-label={t['crumb.label']}>
+        <ol>
+          <li><a href={lang.path}>{t['crumb.home']}</a></li>
+          <li><span aria-current="page">{t['crumb.page']}</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow">{t['page.eyebrow']}</p>
+      <h1>{t['page.title']}</h1>
+      <p class="page-lede">{t['page.lede']}</p>
+      <div class="page-actions">
+        <a class="btn btn-primary" href="https://app.getcoinio.me/signup">
+          {t['hero.cloudCta']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn" href="https://docs.getcoinio.me/docs/integrations/firefly/">
+          {t['cta.docs']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg>
+        </a>
+      </div>
+      <p class="checked">{t['page.checked']}</p>
+    </section>
+
+    <section class="section" aria-labelledby="sync-title">
+      <div class="prose-head">
+        <h2 id="sync-title">{t['sync.title']}</h2>
+        <p>{t['sync.lede']}</p>
+      </div>
+      <div class="table-wrap" role="region" aria-labelledby="sync-title" tabindex="0">
+        <table class="cmp cmp-2">
+          <thead>
+            <tr>
+              <th scope="col"><span class="vh">{t['table.feature']}</span></th>
+              <th scope="col" class="is-us">Coinio</th>
+              <th scope="col">Firefly III</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">{t['r.defs']}</th><td class="is-us">{t['r.defs.coinio']}</td><td>{t['r.defs.ff']}</td></tr>
+            <tr><th scope="row">{t['r.payments']}</th><td class="is-us">{t['r.payments.coinio']}</td><td>{t['r.payments.ff']}</td></tr>
+            <tr><th scope="row">{t['r.auto']}</th><td class="is-us">{t['r.auto.coinio']}</td><td>{t['r.auto.ff']}</td></tr>
+            <tr><th scope="row">{t['r.conflict']}</th><td class="is-us">{t['r.conflict.coinio']}</td><td>{t['r.conflict.ff']}</td></tr>
+            <tr><th scope="row">{t['r.delete']}</th><td class="is-us">{t['r.delete.coinio']}</td><td>{t['r.delete.ff']}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="steps-title">
+      <div class="prose-head">
+        <h2 id="steps-title">{t['steps.title']}</h2>
+        <p>{t['steps.lede']}</p>
+      </div>
+      <ol class="steps">
+        <li><p><Fragment set:html={t['steps.1']} /></p></li>
+        <li><p><Fragment set:html={t['steps.2']} /></p></li>
+        <li><p><Fragment set:html={t['steps.3']} /></p></li>
+      </ol>
+      <div class="prose">
+        <h3>{t['extra.title']}</h3>
+        <p><Fragment set:html={t['extra.body']} /></p>
+        <p><a class="arrow" href="https://docs.getcoinio.me/docs/integrations/firefly/">{t['cta.docs']}</a></p>
+      </div>
+    </section>
+
+    <FaqSection
+      ids={pg.faq}
+      prefix={pg.faqPrefix}
+      eyebrow={t['nav.faq']}
+      title={t['pfaq.title']}
+      t={t}
+    />
+
+    <FinalCta t={t} title={t['final.pageTitle']} lede={t['final.pageLede']}>
+      <p class="final-links">
+        <a href={demoHref} data-demo-link>{t['cta.demo']}</a>
+        <span class="dot">·</span>
+        <a href="https://docs.getcoinio.me/docs/integrations/firefly/">{t['cta.docs']}</a>
+        <span class="dot">·</span>
+        <a href={`${lang.path}self-hosted-subscription-trackers/`}>{t['footer.trackers']}</a>
+        <span class="dot">·</span>
+        <a href={lang.path}>{t['crumb.home']}</a>
+      </p>
+    </FinalCta>
+  </main>
+</BaseLayout>

@@ -1,0 +1,49 @@
+---
+import { LANGS, pagePath, REPO, type LangDef, type PageSlug } from '../lib/i18n';
+import Wordmark from './Wordmark.astro';
+
+interface Props {
+  lang: LangDef;
+  slug: PageSlug;
+  t: Record<string, string>;
+}
+
+const { lang, slug, t } = Astro.props;
+const brandHref = slug === '' ? '#top' : lang.path;
+---
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="brand brand-sm" href={brandHref} aria-label={t['nav.home']}>
+      <Wordmark small />
+    </a>
+
+    <nav class="footer-links" aria-label={t['footer.label']}>
+      <a href={REPO}>GitHub</a>
+      <a href="https://docs.getcoinio.me">{t['nav.docs']}</a>
+      <a href="https://app.getcoinio.me/signup">{t['nav.startFree']}</a>
+      <a href="/install.sh">install.sh</a>
+      <a href={`${lang.path}free-subscription-tracker/`}>{t['footer.free']}</a>
+      <a href={`${lang.path}firefly-iii-subscription-tracker/`}>{t['footer.firefly']}</a>
+      <a href={`${lang.path}wallos-alternative/`}>{t['footer.wallos']}</a>
+      <a href={`${lang.path}self-hosted-subscription-trackers/`}>{t['footer.trackers']}</a>
+      <a href={`${lang.path}subscription-tracker-vs-spreadsheet/`}>{t['footer.spreadsheet']}</a>
+      <a href={`${lang.path}privacy/`}>{t['footer.privacy']}</a>
+      <a href={`${lang.path}terms/`}>{t['footer.terms']}</a>
+      <a href={`${REPO}/blob/main/LICENSE`}>{t['footer.license']}</a>
+      <a href={`${REPO}/issues`}>{t['footer.issues']}</a>
+    </nav>
+
+    <nav class="footer-langs" aria-label={t['footer.languages']}>
+      {LANGS.map((l) => (
+        <a
+          href={pagePath(l, slug)}
+          hreflang={l.code}
+          lang={l.code}
+          aria-current={l.code === lang.code ? 'page' : undefined}
+        >
+          {l.name}
+        </a>
+      ))}
+    </nav>
+  </div>
+</footer>

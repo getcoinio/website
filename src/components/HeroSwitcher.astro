@@ -1,0 +1,165 @@
+---
+interface Props {
+  demoHref: string;
+  t: Record<string, string>;
+}
+
+const { demoHref, t } = Astro.props;
+---
+<section class="hero">
+  <div class="mark-wrap" aria-hidden="true">
+    <div class="mark-halo"></div>
+    <svg class="mark" viewBox="0 0 64 64">
+      <g class="slices">
+        <path d="M45.93 16.96A20.5 20.5 0 0 0 35.68 11.83"/>
+        <path d="M33.41 11.55A20.5 20.5 0 0 0 22.21 13.99"/>
+        <path d="M20.27 15.19A20.5 20.5 0 0 0 13.08 24.11"/>
+        <path d="M12.32 26.27A20.5 20.5 0 0 0 12.32 37.73"/>
+        <path d="M13.08 39.89A20.5 20.5 0 0 0 20.27 48.81"/>
+        <path d="M22.21 50.01A20.5 20.5 0 0 0 33.41 52.45"/>
+        <path d="M35.68 52.17A20.5 20.5 0 0 0 45.93 47.04"/>
+      </g>
+      <g class="lit">
+        <path d="M45.93 16.96A20.5 20.5 0 0 0 35.68 11.83"/>
+        <path d="M33.41 11.55A20.5 20.5 0 0 0 22.21 13.99"/>
+        <path d="M20.27 15.19A20.5 20.5 0 0 0 13.08 24.11"/>
+        <path d="M12.32 26.27A20.5 20.5 0 0 0 12.32 37.73"/>
+        <path d="M13.08 39.89A20.5 20.5 0 0 0 20.27 48.81"/>
+        <path d="M22.21 50.01A20.5 20.5 0 0 0 33.41 52.45"/>
+        <path d="M35.68 52.17A20.5 20.5 0 0 0 45.93 47.04"/>
+      </g>
+      <circle class="coin" cx="46.5" cy="32" r="7"/>
+    </svg>
+  </div>
+
+  <h1>
+    <span class="eyebrow">{t['hero.eyebrow']}<span class="vh">{t['hero.sep']}</span></span>
+    <Fragment set:html={t['hero.title']} />
+  </h1>
+  <p class="lede">{t['hero.lede']}</p>
+
+  <div class="mode-box" id="start" data-tabs data-mode-switcher>
+    <div id="install" aria-hidden="true"></div>
+    <div class="mode-head">
+      <div class="mode-tabs" role="tablist" aria-label={t['hero.modeLabel']}>
+        <button role="tab" id="m-cloud" aria-controls="mp-cloud" aria-selected="true" type="button">
+          <span class="mode-title">{t['hero.modeCloud']}</span>
+          <span class="mode-sub">{t['hero.modeCloudSub']}</span>
+        </button>
+        <button role="tab" id="m-self" aria-controls="mp-self" aria-selected="false" tabindex="-1" type="button">
+          <span class="mode-title">{t['hero.modeSelf']}</span>
+          <span class="mode-sub">{t['hero.modeSelfSub']}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mode-panel" role="tabpanel" id="mp-cloud" aria-labelledby="m-cloud">
+      <div class="cloud-card">
+        <div class="cloud-copy">
+          <h2>{t['hero.cloudTitle']}</h2>
+          <p>{t['hero.cloudBody']}</p>
+          <ul class="cloud-points">
+            <li>{t['hero.cloudPoint1']}</li>
+            <li>{t['hero.cloudPoint2']}</li>
+            <li>{t['hero.cloudPoint3']}</li>
+          </ul>
+        </div>
+        <div class="cloud-actions">
+          <a class="btn btn-primary btn-lg" href="https://app.getcoinio.me/signup">
+            {t['hero.cloudCta']}
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <div class="cloud-secondary">
+            <a href="https://app.getcoinio.me/login">{t['hero.cloudLogin']}</a>
+            <span class="dot">·</span>
+            <a href={demoHref} data-demo-link>{t['hero.cloudDemo']}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mode-panel" role="tabpanel" id="mp-self" aria-labelledby="m-self" hidden>
+      <div class="term term-in-mode" data-tabs>
+        <div class="term-head">
+          <div class="tabs" role="tablist" aria-label={t['install.tabs']}>
+            <button role="tab" id="t-script" aria-controls="p-script" aria-selected="true" type="button">{t['install.tabScript']}</button>
+            <button role="tab" id="t-docker" aria-controls="p-docker" aria-selected="false" tabindex="-1" type="button">Docker</button>
+            <button role="tab" id="t-compose" aria-controls="p-compose" aria-selected="false" tabindex="-1" type="button">Compose</button>
+            <button role="tab" id="t-dokploy" aria-controls="p-dokploy" aria-selected="false" tabindex="-1" type="button">Dokploy</button>
+            <button role="tab" id="t-unraid" aria-controls="p-unraid" aria-selected="false" tabindex="-1" type="button">Unraid</button>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-script" aria-labelledby="t-script">
+          <div class="code-row">
+            <pre class="wrap"><code><span class="p">curl -fsSL <span class="nw">https://getcoinio.me/install | sh</span></span></code></pre>
+            <button class="copy" type="button" aria-label={t['copy.command']}>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></svg>
+              <span>{t['copy.label']}</span>
+            </button>
+          </div>
+          <p class="note">{t['install.scriptNote']} <a href="/install.sh">{t['install.readScript']}</a></p>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-docker" aria-labelledby="t-docker" hidden>
+          <div class="code-row">
+            <pre><code><span class="p">docker run -d --name coinio --restart unless-stopped \</span>
+<span class="c">  -p 8080:8080 -v coinio-data:/data \</span>
+<span class="c">  ghcr.io/getcoinio/coinio:latest</span></code></pre>
+            <button class="copy" type="button" aria-label={t['copy.command']}>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></svg>
+              <span>{t['copy.label']}</span>
+            </button>
+          </div>
+          <p class="note"><Fragment set:html={t['install.dockerNote']} /></p>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-compose" aria-labelledby="t-compose" hidden>
+          <div class="code-row">
+            <pre><code><span class="p">mkdir coinio &amp;&amp; cd coinio</span>
+<span class="p">curl -fsSLO https://raw.githubusercontent.com/getcoinio/coinio/main/docker-compose.yml</span>
+<span class="p">docker compose up -d</span></code></pre>
+            <button class="copy" type="button" aria-label={t['copy.commands']}>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></svg>
+              <span>{t['copy.label']}</span>
+            </button>
+          </div>
+          <p class="note"><Fragment set:html={t['install.composeNote']} /></p>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-dokploy" aria-labelledby="t-dokploy" hidden>
+          <div class="code-row">
+            <pre><code><span class="k"># Official Dokploy template PR merged (1-click soon) · Git deploy today:</span>
+<span class="kv"><i>Repository</i>   https://github.com/getcoinio/coinio</span>
+<span class="kv"><i>Compose path</i> ./docker-compose.yml</span></code></pre>
+            <button class="copy" type="button" aria-label={t['copy.repo']} data-copy="https://github.com/getcoinio/coinio">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></svg>
+              <span>{t['copy.labelUrl']}</span>
+            </button>
+          </div>
+          <p class="note">{t['install.dokployNote']}</p>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-unraid" aria-labelledby="t-unraid" hidden>
+          <div class="code-row">
+            <pre><code><span class="p">curl -fsSL -o /boot/config/plugins/dockerMan/templates-user/coinio.xml \</span>
+<span class="c">  https://raw.githubusercontent.com/getcoinio/coinio/main/deploy/unraid/coinio.xml</span></code></pre>
+            <button class="copy" type="button" aria-label={t['copy.command']}>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></svg>
+              <span>{t['copy.label']}</span>
+            </button>
+          </div>
+          <p class="note">{t['install.unraidNote']}</p>
+        </div>
+      </div>
+
+      <p class="also">
+        {t['also.label']}
+        <a href="https://github.com/getcoinio/coinio/blob/main/deploy/casaos/docker-compose.yml">CasaOS</a><span class="dot">·</span>
+        <a href="https://github.com/getcoinio/coinio/blob/main/deploy/portainer/template.json">Portainer</a><span class="dot">·</span>
+        <span class="soon">Coolify <em>{t['also.soon']}</em></span><span class="dot">·</span>
+        <span class="soon">PikaPods <em>{t['also.soon']}</em></span>
+      </p>
+    </div>
+  </div>
+</section>

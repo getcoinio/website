@@ -1,0 +1,13 @@
+{
+  "meta.title": "隐私政策 — Coinio 免费云端托管版订阅管理工具",
+  "meta.description": "了解 app.getcoinio.me 上免费托管版 Coinio 保存哪些数据、为何保存、欧盟加密备份机制、保留期限，以及如何随时导出 JSON 或彻底删除你的全部账号与数据。",
+  "og.title": "隐私政策 · Coinio",
+  "og.description": "托管在 app.getcoinio.me 的 Coinio 保存什么、为什么保存、由谁处理、保存多久以及如何删除。",
+  "crumb.label": "面包屑导航",
+  "crumb.page": "隐私政策",
+  "page.eyebrow": "法律信息",
+  "page.title": "隐私政策",
+  "page.lede": "Coinio 没有广告，不追踪你，也不出售数据。本页说明 app.getcoinio.me 上的托管版本具体保存哪些数据，以及如何导出或删除你的数据。",
+  "page.updated": "最后更新：2026 年 11 月 22 日",
+  "legal.body": "<h2>我们是谁</h2>\n<p>app.getcoinio.me 上的 Coinio 是开源订阅管理工具 Coinio 的免费托管版本。如果你在自己的服务器上运行 Coinio，本政策不适用：你的数据永远不会到达我们这里。隐私问题请联系 <a href=\"mailto:support@getcoinio.me\">support@getcoinio.me</a>。</p>\n<h2>我们保存什么</h2>\n<ul><li>你的邮箱地址；如果你设置了密码，只保存它的单向哈希（argon2id）。</li><li>如果你使用 Google 或 GitHub 登录：它们提供的账户 ID 和你已验证的邮箱。我们永远看不到你在那里的密码，也不申请任何其他权限。</li><li>你在应用中填写的内容：订阅、付款、分类、备注、设置、外观和通知渠道。</li><li>运行服务所需的技术数据：登录会话、上次登录时间，以及为防止滥用而短暂保存的 IP 地址（请求频率限制和 Cloudflare Turnstile 验证）。</li></ul>\n<h2>为什么保存</h2>\n<p>只为让你的账户正常运行：显示订阅、发送你开启的提醒、保护账户安全并回答你的问题。法律依据是提供你注册的服务。</p>\n<h2>还有谁处理数据</h2>\n<ul><li>Netvay（服务器位于土耳其）托管应用及其数据库。</li><li>Cloudflare 保护并分发网站，运行 Turnstile 验证，并在欧盟保存加密的每日备份。</li><li>Brevo（欧盟）发送账户邮件以及你选择通过邮件接收的提醒。</li><li>Google 和 GitHub，仅在你用它们登录时。</li></ul>\n<h2>Cookie</h2>\n<p>一个 Cookie 用于保持登录。Turnstile 可能为验证设置自己的 Cookie。没有广告或分析类 Cookie。</p>\n<h2>保存多久</h2>\n<ul><li>只要你的账户存在。删除账户后，所有数据会立即从在线数据库中删除，并在 14 天内从备份中删除。</li><li>从未验证的账户会在 7 天后删除。</li></ul>\n<h2>你的权利</h2>\n<p>你可以随时下载全部数据（设置 › 账户 › 下载我的数据）、在应用中更正数据，或删除账户。根据 GDPR 和土耳其 KVKK，你也可以查询自己的数据或反对其使用：<a href=\"mailto:support@getcoinio.me\">support@getcoinio.me</a>。</p>\n<h2>儿童</h2>\n<p>Coinio 面向所有人，并非专为儿童设计的服务。如果父母或监护人认为有 13 岁以下的儿童创建了账户，请写信至 <a href=\"mailto:support@getcoinio.me\">support@getcoinio.me</a>，我们会删除该账户及其全部数据。</p>\n<h2>变更</h2>\n<p>如果本政策有重要变化，我们会在生效前通过邮件或在应用中通知你。</p>"
+}

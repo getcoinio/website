@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { getLangStaticPaths, getMessages, PAGES, type LangDef } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+interface Props {
+  lang: LangDef;
+}
+
+const { lang } = Astro.props;
+const pg = PAGES.find((p) => p.slug === 'wallos-alternative')!;
+const t = getMessages(lang, 'wallos-alternative');
+const demoHref = `/demo/?lang=${lang.code}`;
+---
+<BaseLayout lang={lang} pg={pg} t={t}>
+  <main id="top" class="sub">
+    <section class="page-hero">
+      <nav class="crumbs" aria-label={t['crumb.label']}>
+        <ol>
+          <li><a href={lang.path}>{t['crumb.home']}</a></li>
+          <li><span aria-current="page">{t['crumb.page']}</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow">{t['page.eyebrow']}</p>
+      <h1>{t['page.title']}</h1>
+      <p class="page-lede">{t['page.lede']}</p>
+      <div class="page-actions">
+        <a class="btn btn-primary" href="https://app.getcoinio.me/signup">
+          {t['hero.cloudCta']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn" href={demoHref} data-demo-link>
+          {t['cta.demo']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg>
+        </a>
+      </div>
+      <div class="term term-solo" id="install">
+        <div class="code-row">
+          <pre class="wrap"><code><span class="p">curl -fsSL <span class="nw">https://getcoinio.me/install | sh</span></span></code></pre>
+          <button class="copy" type="button" aria-label={t['copy.command']}>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></svg>
+            <span>{t['copy.label']}</span>
+          </button>
+        </div>
+      </div>
+      <p class="page-cta-note">{t['cta.note']}</p>
+      <p class="checked">{t['page.checked']}</p>
+    </section>
+
+    <section class="section" aria-labelledby="glance-title">
+      <div class="prose-head">
+        <h2 id="glance-title">{t['glance.title']}</h2>
+        <p>{t['glance.lede']}</p>
+      </div>
+      <div class="table-wrap" role="region" aria-labelledby="glance-title" tabindex="0">
+        <table class="cmp cmp-2">
+          <thead>
+            <tr><th scope="col"><span class="vh">{t['table.feature']}</span></th><th scope="col" class="is-us">Coinio</th><th scope="col">Wallos</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">{t['row.install']}</th><td class="is-us">{t['row.install.coinio']}</td><td>{t['row.install.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.stack']}</th><td class="is-us">Node.js (Express), React, SQLite</td><td>PHP 8.3, SQLite</td></tr>
+            <tr><th scope="row">{t['row.license']}</th><td class="is-us">MIT</td><td>GPL-3.0</td></tr>
+            <tr><th scope="row">{t['row.languages']}</th><td class="is-us">{t['row.languages.coinio']}</td><td>{t['row.languages.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.currency']}</th><td class="is-us">{t['row.currency.coinio']}</td><td>{t['row.currency.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.reminders']}</th><td class="is-us">{t['row.reminders.coinio']}</td><td>{t['row.reminders.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.ai']}</th><td class="is-us">{t['row.ai.coinio']}</td><td>{t['row.ai.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.iphone']}</th><td class="is-us">{t['row.iphone.coinio']}</td><td>{t['row.iphone.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.custom']}</th><td class="is-us">{t['row.custom.coinio']}</td><td>{t['row.custom.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.users']}</th><td class="is-us">{t['row.users.coinio']}</td><td>{t['row.users.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.oidc']}</th><td class="is-us">{t['row.oidc.coinio']}</td><td>{t['row.oidc.wallos']}</td></tr>
+            <tr><th scope="row">{t['row.demo']}</th><td class="is-us">{t['row.demo.coinio']}</td><td>{t['row.demo.wallos']}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pick-title">
+      <div class="prose-head">
+        <h2 id="pick-title">{t['pick.title']}</h2>
+        <p>{t['pick.lede']}</p>
+      </div>
+      <div class="cards cards-2">
+        <article class="card">
+          <h3>{t['pick.wallos.title']}</h3>
+          <ul class="ticks">
+            <li>{t['pick.wallos.1']}</li>
+            <li>{t['pick.wallos.2']}</li>
+            <li>{t['pick.wallos.3']}</li>
+            <li>{t['pick.wallos.4']}</li>
+            <li>{t['pick.wallos.5']}</li>
+          </ul>
+        </article>
+        <article class="card card-us">
+          <h3>{t['pick.coinio.title']}</h3>
+          <ul class="ticks">
+            <li>{t['pick.coinio.1']}</li>
+            <li>{t['pick.coinio.2']}</li>
+            <li>{t['pick.coinio.3']}</li>
+            <li>{t['pick.coinio.4']}</li>
+            <li>{t['pick.coinio.5']}</li>
+            <li>{t['pick.coinio.6']}</li>
+          </ul>
+        </article>
+      </div>
+      <p class="aside-note">{t['pick.note']}</p>
+    </section>
+
+    <section class="section" id="move" aria-labelledby="move-title">
+      <div class="prose-head">
+        <h2 id="move-title">{t['move.title']}</h2>
+        <p>{t['move.lede']}</p>
+      </div>
+      <ol class="steps">
+        <li><p><Fragment set:html={t['move.step1']} /></p></li>
+        <li><p><Fragment set:html={t['move.step2']} /></p></li>
+        <li><p><Fragment set:html={t['move.step3']} /></p></li>
+      </ol>
+      <div class="prose">
+        <h3>{t['move.carry.title']}</h3>
+        <p>{t['move.carry.body']}</p>
+        <p><a class="arrow" href="https://docs.getcoinio.me/docs/features/import-export">{t['move.docs']}</a></p>
+      </div>
+    </section>
+
+    <FaqSection
+      ids={pg.faq}
+      prefix={pg.faqPrefix}
+      eyebrow={t['nav.faq']}
+      title={t['pfaq.title']}
+      t={t}
+    />
+
+    <FinalCta t={t}>
+      <p class="final-links">
+        <a href={demoHref} data-demo-link>{t['cta.demo']}</a>
+        <span class="dot">·</span>
+        <a href={`${lang.path}self-hosted-subscription-trackers/`}>{t['final.trackers']}</a>
+        <span class="dot">·</span>
+        <a href="https://docs.getcoinio.me">{t['nav.docs']}</a>
+        <span class="dot">·</span>
+        <a href={lang.path}>{t['final.home']}</a>
+      </p>
+    </FinalCta>
+  </main>
+</BaseLayout>

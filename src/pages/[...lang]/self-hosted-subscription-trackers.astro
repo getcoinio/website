@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { getLangStaticPaths, getMessages, PAGES, type LangDef } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+interface Props {
+  lang: LangDef;
+}
+
+const { lang } = Astro.props;
+const pg = PAGES.find((p) => p.slug === 'self-hosted-subscription-trackers')!;
+const t = getMessages(lang, 'self-hosted-subscription-trackers');
+const demoHref = `/demo/?lang=${lang.code}`;
+---
+<BaseLayout lang={lang} pg={pg} t={t}>
+  <main id="top" class="sub">
+    <section class="page-hero">
+      <nav class="crumbs" aria-label={t['crumb.label']}>
+        <ol>
+          <li><a href={lang.path}>{t['crumb.home']}</a></li>
+          <li><span aria-current="page">{t['crumb.page']}</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow">{t['page.eyebrow']}</p>
+      <h1>{t['page.title']}</h1>
+      <p class="page-lede">{t['page.lede']}</p>
+      <div class="page-actions">
+        <a class="btn btn-primary" href="https://app.getcoinio.me/signup">
+          {t['hero.cloudCta']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn" href={demoHref} data-demo-link>
+          {t['final.demo']}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg>
+        </a>
+      </div>
+      <p class="checked">{t['page.checked']}</p>
+    </section>
+
+    <section class="section" aria-labelledby="list-title">
+      <div class="prose-head">
+        <h2 id="list-title">{t['list.title']}</h2>
+        <p>{t['list.lede']}</p>
+      </div>
+      <div class="cards cards-trackers">
+        <article class="card tracker" id="wallos">
+          <h3><a href="https://github.com/ellite/Wallos">Wallos</a></h3>
+          <dl>
+            <div><dt>{t['label.stack']}</dt><dd>{t['wallos.stack']}</dd></div>
+            <div><dt>{t['label.license']}</dt><dd>GPL-3.0</dd></div>
+            <div><dt>{t['label.stars']}</dt><dd>{t['wallos.stars']}</dd></div>
+            <div><dt>{t['label.standout']}</dt><dd>{t['wallos.standout']}</dd></div>
+            <div><dt>{t['label.best']}</dt><dd>{t['wallos.best']}</dd></div>
+          </dl>
+        </article>
+        <article class="card tracker" id="subtrackr">
+          <h3><a href="https://github.com/bscott/subtrackr">SubTrackr</a></h3>
+          <dl>
+            <div><dt>{t['label.stack']}</dt><dd>{t['subtrackr.stack']}</dd></div>
+            <div><dt>{t['label.license']}</dt><dd>AGPL-3.0</dd></div>
+            <div><dt>{t['label.stars']}</dt><dd>{t['subtrackr.stars']}</dd></div>
+            <div><dt>{t['label.standout']}</dt><dd>{t['subtrackr.standout']}</dd></div>
+            <div><dt>{t['label.best']}</dt><dd>{t['subtrackr.best']}</dd></div>
+          </dl>
+        </article>
+        <article class="card tracker" id="renewlet">
+          <h3><a href="https://github.com/zhiyingzzhou/renewlet">Renewlet</a></h3>
+          <dl>
+            <div><dt>{t['label.stack']}</dt><dd>{t['renewlet.stack']}</dd></div>
+            <div><dt>{t['label.license']}</dt><dd>MIT</dd></div>
+            <div><dt>{t['label.stars']}</dt><dd>{t['renewlet.stars']}</dd></div>
+            <div><dt>{t['label.standout']}</dt><dd>{t['renewlet.standout']}</dd></div>
+            <div><dt>{t['label.best']}</dt><dd>{t['renewlet.best']}</dd></div>
+          </dl>
+        </article>
+        <article class="card tracker" id="zublo">
+          <h3><a href="https://github.com/danielalves96/zublo">Zublo</a></h3>
+          <dl>
+            <div><dt>{t['label.stack']}</dt><dd>{t['zublo.stack']}</dd></div>
+            <div><dt>{t['label.license']}</dt><dd>{t['zublo.license']}</dd></div>
+            <div><dt>{t['label.stars']}</dt><dd>{t['zublo.stars']}</dd></div>
+            <div><dt>{t['label.standout']}</dt><dd>{t['zublo.standout']}</dd></div>
+            <div><dt>{t['label.best']}</dt><dd>{t['zublo.best']}</dd></div>
+          </dl>
+        </article>
+        <article class="card tracker card-us" id="coinio">
+          <h3><a href={lang.path}>Coinio</a></h3>
+          <dl>
+            <div><dt>{t['label.stack']}</dt><dd>{t['coinio.stack']}</dd></div>
+            <div><dt>{t['label.license']}</dt><dd>MIT</dd></div>
+            <div><dt>{t['label.stars']}</dt><dd>{t['coinio.stars']}</dd></div>
+            <div><dt>{t['label.standout']}</dt><dd>{t['coinio.standout']}</dd></div>
+            <div><dt>{t['label.best']}</dt><dd>{t['coinio.best']}</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="table-title">
+      <div class="prose-head">
+        <h2 id="table-title">{t['table.title']}</h2>
+        <p>{t['table.lede']}</p>
+      </div>
+      <div class="table-wrap" role="region" aria-labelledby="table-title" tabindex="0">
+        <table class="cmp cmp-5">
+          <thead>
+            <tr><th scope="col"><span class="vh">{t['table.feature']}</span></th><th scope="col">Wallos</th><th scope="col">SubTrackr</th><th scope="col">Renewlet</th><th scope="col">Zublo</th><th scope="col" class="is-us">Coinio</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">{t['label.stack']}</th><td>PHP, SQLite</td><td>Go, SQLite</td><td>{t['t.stack.renewlet']}</td><td>PocketBase, SQLite</td><td class="is-us">Node.js, SQLite</td></tr>
+            <tr><th scope="row">{t['label.license']}</th><td>GPL-3.0</td><td>AGPL-3.0</td><td>MIT</td><td>Apache-2.0</td><td class="is-us">MIT</td></tr>
+            <tr><th scope="row">{t['label.stars']}</th><td>{t['wallos.stars']}</td><td>{t['subtrackr.stars']}</td><td>{t['renewlet.stars']}</td><td>{t['zublo.stars']}</td><td class="is-us">{t['coinio.stars']}</td></tr>
+            <tr><th scope="row">{t['t.notify']}</th><td>{t['t.notify.wallos']}</td><td>{t['t.notify.subtrackr']}</td><td>{t['t.notify.renewlet']}</td><td>{t['t.notify.zublo']}</td><td class="is-us">{t['t.notify.coinio']}</td></tr>
+            <tr><th scope="row">{t['t.rates']}</th><td>{t['t.rates.wallos']}</td><td>{t['t.rates.subtrackr']}</td><td>{t['t.rates.renewlet']}</td><td>{t['t.rates.zublo']}</td><td class="is-us">{t['t.rates.coinio']}</td></tr>
+            <tr><th scope="row">{t['t.ai']}</th><td>{t['t.ai.wallos']}</td><td>{t['t.ai.subtrackr']}</td><td>{t['t.ai.renewlet']}</td><td>{t['t.ai.zublo']}</td><td class="is-us">{t['t.ai.coinio']}</td></tr>
+            <tr><th scope="row">{t['t.users']}</th><td>{t['t.users.wallos']}</td><td>{t['t.users.subtrackr']}</td><td>{t['t.users.renewlet']}</td><td>{t['t.users.zublo']}</td><td class="is-us">{t['t.users.coinio']}</td></tr>
+            <tr><th scope="row">{t['t.calendar']}</th><td>{t['t.calendar.wallos']}</td><td>{t['t.calendar.subtrackr']}</td><td>{t['t.calendar.renewlet']}</td><td>{t['t.calendar.zublo']}</td><td class="is-us">{t['t.calendar.coinio']}</td></tr>
+            <tr><th scope="row">{t['t.import']}</th><td>{t['t.none']}</td><td>{t['t.none']}</td><td>{t['t.yes']}</td><td>{t['t.none']}</td><td class="is-us">{t['t.yes']}</td></tr>
+            <tr><th scope="row">{t['t.demo']}</th><td>{t['t.yes']}</td><td>{t['t.none']}</td><td>{t['t.yes']}</td><td>{t['t.demo.zublo']}</td><td class="is-us">{t['t.demo.coinio']}</td></tr>
+            <tr><th scope="row">{t['t.extra']}</th><td>{t['t.extra.wallos']}</td><td>{t['t.extra.subtrackr']}</td><td>{t['t.extra.renewlet']}</td><td>{t['t.extra.zublo']}</td><td class="is-us">{t['t.extra.coinio']}</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">{t['table.note']}</p>
+    </section>
+
+    <section class="section" aria-labelledby="choose-title">
+      <div class="prose-head">
+        <h2 id="choose-title">{t['choose.title']}</h2>
+        <p>{t['choose.lede']}</p>
+      </div>
+      <ul class="choose">
+        <li><h3>{t['choose.users.q']}</h3><p>{t['choose.users.a']}</p></li>
+        <li><h3>{t['choose.notify.q']}</h3><p>{t['choose.notify.a']}</p></li>
+        <li><h3>{t['choose.ai.q']}</h3><p>{t['choose.ai.a']}</p></li>
+        <li><h3>{t['choose.calendar.q']}</h3><p>{t['choose.calendar.a']}</p></li>
+        <li><h3>{t['choose.license.q']}</h3><p>{t['choose.license.a']}</p></li>
+        <li><h3>{t['choose.wallos.q']}</h3><p><Fragment set:html={t['choose.wallos.a']} /></p></li>
+      </ul>
+    </section>
+
+    <FaqSection
+      ids={pg.faq}
+      prefix={pg.faqPrefix}
+      eyebrow={t['nav.faq']}
+      title={t['pfaq.title']}
+      t={t}
+    />
+
+    <FinalCta t={t}>
+      <p class="final-links">
+        <a href={demoHref} data-demo-link>{t['final.demo']}</a>
+        <span class="dot">·</span>
+        <a href={`${lang.path}wallos-alternative/`}>{t['final.wallos']}</a>
+        <span class="dot">·</span>
+        <a href="https://docs.getcoinio.me">{t['nav.docs']}</a>
+        <span class="dot">·</span>
+        <a href={lang.path}>{t['final.home']}</a>
+      </p>
+    </FinalCta>
+  </main>
+</BaseLayout>

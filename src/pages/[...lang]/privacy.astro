@@ -1,0 +1,15 @@
+---
+import LegalPage from '../../components/LegalPage.astro';
+import { getLangStaticPaths, type LangDef } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+interface Props {
+  lang: LangDef;
+}
+
+const { lang } = Astro.props;
+---
+<LegalPage lang={lang} slug="privacy" />
