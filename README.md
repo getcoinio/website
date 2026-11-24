@@ -6,7 +6,11 @@ Marketing website and live browser demo for [Coinio](https://github.com/getcoini
 
 [Live site](https://getcoinio.me) · [Live demo](https://getcoinio.me/demo/) · [Documentation](https://docs.getcoinio.me) · [Free hosted app](https://app.getcoinio.me/signup)
 
-![Coinio: every subscription, one calm page](public/assets/og.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/assets/repo-banner-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="public/assets/repo-banner-light.png">
+  <img src="public/assets/repo-banner-dark.png" alt="Coinio Website & Live Demo">
+</picture>
 
 ## What is in this repo
 
