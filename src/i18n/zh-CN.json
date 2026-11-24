@@ -161,15 +161,5 @@
   "footer.spreadsheet": "对比表格记账",
   "features.familyTitle": "家庭与共享订阅",
   "features.familyBody": "创建家庭空间，用一次性邀请链接拉入家人，按均摊或自定义金额拆分共享套餐——个人订阅保持私密，每人都能看清自己的份额与到期日。",
-  "own.dokploy": "<strong>即将支持 Dokploy 一键安装。</strong>官方 Dokploy 模板 PR 已合并；现在即可通过 Docker、Compose、Unraid 和 CasaOS 部署。",
-  "showcase.eyebrow": "界面一览",
-  "showcase.title": "每个视图都清晰克制<span class=\"pd\">。</span>",
-  "showcase.calendarTitle": "月度日历",
-  "showcase.calendarBody": "提前数月看清每个扣费日与每周小计，避免意外扣款。",
-  "showcase.reportsTitle": "12 个月报表",
-  "showcase.reportsBody": "按分类对比过去 12 个月已付金额与未来 12 个月预计支出。",
-  "showcase.subsTitle": "订阅总览",
-  "showcase.subsBody": "按计费周期、付款方式、外币或家庭共享方案一键筛选。",
-  "showcase.themeTitle": "主题、字体与布局",
-  "showcase.themeBody": "内置多种主题、强调色与字体搭配，也支持自定义 CSS 与 HTML 卡片。"
+  "own.dokploy": "<strong>即将支持 Dokploy 一键安装。</strong>官方 Dokploy 模板 PR 已合并；现在即可通过 Docker、Compose、Unraid 和 CasaOS 部署。"
 }

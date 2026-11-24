@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSwitcher from '../../components/HeroSwitcher.astro';
 import LiveDemo from '../../components/LiveDemo.astro';
-import ProductShowcase from '../../components/ProductShowcase.astro';
 import FeaturesGrid from '../../components/FeaturesGrid.astro';
 import TwoWays from '../../components/TwoWays.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -26,7 +25,6 @@ const demoHref = `/demo/?lang=${lang.code}`;
   <main id="top">
     <HeroSwitcher demoHref={demoHref} t={t} />
     <LiveDemo demoHref={demoHref} t={t} />
-    <ProductShowcase t={t} />
     <FeaturesGrid lang={lang} t={t} />
     <TwoWays t={t} />
     <FaqSection

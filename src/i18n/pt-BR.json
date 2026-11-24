@@ -161,15 +161,5 @@
   "footer.spreadsheet": "App vs planilha",
   "features.familyTitle": "Família e planos compartilhados",
   "features.familyBody": "Crie uma família, convide com links de uso único e divida assinaturas por igual ou valores próprios — contas pessoais seguem privadas e cada um vê sua parte.",
-  "own.dokploy": "<strong>Um clique no Dokploy (em breve).</strong> PR do template oficial do Dokploy aceito; já pronto hoje com Docker, Compose, Unraid e CasaOS.",
-  "showcase.eyebrow": "Por dentro do app",
-  "showcase.title": "Cada tela feita para dar clareza<span class=\"pd\">.</span>",
-  "showcase.calendarTitle": "Calendário mensal",
-  "showcase.calendarBody": "Veja cada vencimento e os totais semanais com meses de antecedência.",
-  "showcase.reportsTitle": "Relatórios de 12 meses",
-  "showcase.reportsBody": "Acompanhe o que foi pago no último ano e a previsão dos próximos 12 meses por categoria.",
-  "showcase.subsTitle": "Todas as assinaturas em um lugar",
-  "showcase.subsBody": "Filtre por ciclo, forma de pagamento, moeda estrangeira ou planos familiares divididos.",
-  "showcase.themeTitle": "Temas, fontes e layout",
-  "showcase.themeBody": "Escolha tema, cor de destaque e fonte, ou personalize com seu próprio CSS e cards em HTML."
+  "own.dokploy": "<strong>Um clique no Dokploy (em breve).</strong> PR do template oficial do Dokploy aceito; já pronto hoje com Docker, Compose, Unraid e CasaOS."
 }

@@ -161,15 +161,5 @@
   "footer.spreadsheet": "表計算との比較",
   "features.familyTitle": "家族・共有プラン",
   "features.familyBody": "世帯を作成し、招待リンクで家族を追加して共有サブスクを均等または任意の金額で分割。個人の契約は非公開のまま、自分の負担額を確認できます。",
-  "own.dokploy": "<strong>Dokployでワンクリック導入（近日対応）。</strong>公式DokployテンプレートPRが承認済み。現在はDocker・Compose・Unraid・CasaOSですぐ導入できます。",
-  "showcase.eyebrow": "アプリの画面",
-  "showcase.title": "どの画面もすっきり見やすく<span class=\"pd\">。</span>",
-  "showcase.calendarTitle": "月間カレンダー",
-  "showcase.calendarBody": "引き落とし日と週ごとの合計を数か月先までひと目で確認できます。",
-  "showcase.reportsTitle": "12か月レポート",
-  "showcase.reportsBody": "過去12か月の実績と今後12か月の見込みをカテゴリ別に表示します。",
-  "showcase.subsTitle": "サブスク一覧",
-  "showcase.subsBody": "請求サイクル、支払い方法、外貨、家族共有プランで素早く絞り込めます。",
-  "showcase.themeTitle": "テーマ・フォント・配置",
-  "showcase.themeBody": "テーマやアクセントカラー、フォントを自由に選び、CSS や HTML カードも追加できます。"
+  "own.dokploy": "<strong>Dokployでワンクリック導入（近日対応）。</strong>公式DokployテンプレートPRが承認済み。現在はDocker・Compose・Unraid・CasaOSですぐ導入できます。"
 }
