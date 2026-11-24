@@ -134,17 +134,27 @@ function loadDemo() {
   }
 }
 if (frame) {
-  const io = new IntersectionObserver(
-    (entries) => {
-      if (entries.some((e) => e.isIntersecting)) {
-        loadDemo();
-        if (frame.src) io.disconnect();
-      }
-    },
-    { rootMargin: '600px 0px' },
-  );
-  io.observe(frame);
-  desktop.addEventListener('change', loadDemo);
+  let demoObserverStarted = false;
+  const startDemoObserver = () => {
+    if (demoObserverStarted) return;
+    demoObserverStarted = true;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          loadDemo();
+          if (frame.src) io.disconnect();
+        }
+      },
+      { rootMargin: '200px 0px' },
+    );
+    io.observe(frame);
+  };
+  for (const ev of ['scroll', 'pointerdown', 'keydown'] as const) {
+    window.addEventListener(ev, startDemoObserver, { once: true, passive: true });
+  }
+  desktop.addEventListener('change', () => {
+    if (demoObserverStarted) loadDemo();
+  });
 }
 
 let lastFocus: HTMLElement | null = null;

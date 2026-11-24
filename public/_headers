@@ -10,7 +10,7 @@
 /demo/*
   X-Robots-Tag: noindex
 
-/assets/fonts/*
+/assets/*
   Cache-Control: public, max-age=31536000, immutable
 
 /_astro/*
@@ -26,7 +26,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Cross-Origin-Opener-Policy: same-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 
 /.well-known/security.txt
   Content-Type: text/plain; charset=utf-8
