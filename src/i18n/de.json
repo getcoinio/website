@@ -161,5 +161,15 @@
   "footer.spreadsheet": "Tracker vs. Tabelle",
   "features.familyTitle": "Familie & geteilte Abos",
   "features.familyBody": "Haushalt anlegen, Mitglieder per Einmal-Link einladen und Abos fair oder individuell aufteilen — persönliche Einträge bleiben privat, jeder sieht seinen Anteil.",
-  "own.dokploy": "<strong>Ein-Klick auf Dokploy (bald).</strong> Offizieller Dokploy-Template-PR wurde angenommen; heute schon per Docker, Compose, Unraid und CasaOS startklar."
+  "own.dokploy": "<strong>Ein-Klick auf Dokploy (bald).</strong> Offizieller Dokploy-Template-PR wurde angenommen; heute schon per Docker, Compose, Unraid und CasaOS startklar.",
+  "showcase.eyebrow": "Einblick in die App",
+  "showcase.title": "Jede Ansicht klar strukturiert<span class=\"pd\">.</span>",
+  "showcase.calendarTitle": "Monatskalender",
+  "showcase.calendarBody": "Sehen Sie Fälligkeiten und Wochensummen Monate im Voraus, bevor etwas abgebucht wird.",
+  "showcase.reportsTitle": "12-Monats-Berichte",
+  "showcase.reportsBody": "Vergleichen Sie die Ausgaben der letzten 12 Monate mit der Vorschau nach Kategorien.",
+  "showcase.subsTitle": "Alle Abos auf einen Blick",
+  "showcase.subsBody": "Filtern Sie nach Zyklus, Zahlungsart, Fremdwährung oder geteilten Familienplänen.",
+  "showcase.themeTitle": "Themes, Schriften & Layout",
+  "showcase.themeBody": "Wählen Sie Theme, Akzentfarbe und Schriftpaar oder passen Sie alles per CSS und HTML-Karten an."
 }

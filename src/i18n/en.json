@@ -161,5 +161,15 @@
   "footer.spreadsheet": "Tracker vs spreadsheet",
   "features.familyTitle": "Family & shared plans",
   "features.familyBody": "Create a household, invite members with single-use links, and split shared plans equally or by custom shares — personal bills stay private while everyone tracks their own share.",
-  "own.dokploy": "<strong>One-click on Dokploy (soon).</strong> Official Dokploy template PR merged; ready today with Docker, Compose, Unraid and CasaOS."
+  "own.dokploy": "<strong>One-click on Dokploy (soon).</strong> Official Dokploy template PR merged; ready today with Docker, Compose, Unraid and CasaOS.",
+  "showcase.eyebrow": "Inside the app",
+  "showcase.title": "Every view, built for clarity<span class=\"pd\">.</span>",
+  "showcase.calendarTitle": "Monthly calendar",
+  "showcase.calendarBody": "See every renewal day and weekly total months ahead before money leaves your account.",
+  "showcase.reportsTitle": "12-month reports",
+  "showcase.reportsBody": "Track what you paid over the last year and what is scheduled for the next 12 months by category.",
+  "showcase.subsTitle": "All subscriptions at a glance",
+  "showcase.subsBody": "Filter by billing cycle, payment method, foreign currency or shared household plans in one table.",
+  "showcase.themeTitle": "Themes, fonts and layout",
+  "showcase.themeBody": "Pick a preset theme, accent colour and font pair, or customize with your own CSS and HTML cards."
 }

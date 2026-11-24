@@ -161,5 +161,15 @@
   "footer.spreadsheet": "Gestor vs hoja de cálculo",
   "features.familyTitle": "Familia y planes compartidos",
   "features.familyBody": "Crea un hogar, invita con enlaces de un solo uso y divide gastos a partes iguales o personalizadas — lo personal sigue privado mientras cada uno ve su parte.",
-  "own.dokploy": "<strong>Un clic en Dokploy (pronto).</strong> La PR de la plantilla oficial de Dokploy fue aceptada; ya disponible con Docker, Compose, Unraid y CasaOS."
+  "own.dokploy": "<strong>Un clic en Dokploy (pronto).</strong> La PR de la plantilla oficial de Dokploy fue aceptada; ya disponible con Docker, Compose, Unraid y CasaOS.",
+  "showcase.eyebrow": "Por dentro",
+  "showcase.title": "Cada vista, hecha para ver claro<span class=\"pd\">.</span>",
+  "showcase.calendarTitle": "Calendario mensual",
+  "showcase.calendarBody": "Consulta los días de cobro y los totales semanales con meses de antelación.",
+  "showcase.reportsTitle": "Informes de 12 meses",
+  "showcase.reportsBody": "Revisa lo pagado el último año y lo previsto para los próximos 12 meses por categoría.",
+  "showcase.subsTitle": "Todas las suscripciones juntas",
+  "showcase.subsBody": "Filtra por ciclo, método de pago, divisa extranjera o planes compartidos en familia.",
+  "showcase.themeTitle": "Temas, fuentes y diseño",
+  "showcase.themeBody": "Elige tema, color de acento y tipografía, o personaliza con tu propio CSS y tarjetas HTML."
 }

@@ -161,5 +161,15 @@
   "footer.spreadsheet": "Tracker vs tableur",
   "features.familyTitle": "Famille et abonnements partagés",
   "features.familyBody": "Créez un foyer, invitez vos proches par lien unique et répartissez vos forfaits à parts égales ou libres — chacun garde ses abonnements privés tout en suivant sa part.",
-  "own.dokploy": "<strong>Un clic sur Dokploy (bientôt).</strong> La PR du modèle officiel Dokploy est fusionnée ; déjà prêt avec Docker, Compose, Unraid et CasaOS."
+  "own.dokploy": "<strong>Un clic sur Dokploy (bientôt).</strong> La PR du modèle officiel Dokploy est fusionnée ; déjà prêt avec Docker, Compose, Unraid et CasaOS.",
+  "showcase.eyebrow": "Aperçu de l’app",
+  "showcase.title": "Chaque vue pensée pour la clarté<span class=\"pd\">.</span>",
+  "showcase.calendarTitle": "Calendrier mensuel",
+  "showcase.calendarBody": "Visualisez chaque échéance et les totaux hebdomadaires plusieurs mois à l’avance.",
+  "showcase.reportsTitle": "Rapports sur 12 mois",
+  "showcase.reportsBody": "Suivez vos paiements passés et les prévisions des 12 prochains mois par catégorie.",
+  "showcase.subsTitle": "Tous les abonnements en un coup d’œil",
+  "showcase.subsBody": "Filtrez par cycle, moyen de paiement, devise ou plans familiaux partagés.",
+  "showcase.themeTitle": "Thèmes, polices et mise en page",
+  "showcase.themeBody": "Choisissez un thème, une couleur d’accent et une police, ou ajoutez votre CSS et vos cartes HTML."
 }

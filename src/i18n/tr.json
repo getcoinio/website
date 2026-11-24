@@ -161,5 +161,15 @@
   "footer.spreadsheet": "Excel mi Coinio mu?",
   "features.familyTitle": "Aile ve ortak abonelikler",
   "features.familyBody": "Hane kur, tek kullanımlık davet bağlantısıyla aile üyelerini ekle, ortak planları eşit veya özel tutarlarla böl — kişisel abonelikler gizli kalırken herkes kendi payını görsün.",
-  "own.dokploy": "<strong>Dokploy'da tek tıkla (yakında).</strong> Resmî Dokploy şablon PR'ı kabul edildi; bugün de Docker, Compose, Unraid ve CasaOS ile hemen kurulur."
+  "own.dokploy": "<strong>Dokploy'da tek tıkla (yakında).</strong> Resmî Dokploy şablon PR'ı kabul edildi; bugün de Docker, Compose, Unraid ve CasaOS ile hemen kurulur.",
+  "showcase.eyebrow": "Uygulamanın içi",
+  "showcase.title": "Her ekran, sadelik için tasarlandı<span class=\"pd\">.</span>",
+  "showcase.calendarTitle": "Aylık ödeme takvimi",
+  "showcase.calendarBody": "Hangi gün ne kadar ödeneceğini ve haftalık toplamları aylar öncesinden görürsün.",
+  "showcase.reportsTitle": "12 aylık raporlar",
+  "showcase.reportsBody": "Geçmiş 12 ayda ne ödediğini ve gelecek 12 ayda kategori bazlı ne kadar ödeyeceğini takip edersin.",
+  "showcase.subsTitle": "Tüm abonelikler tek tabloda",
+  "showcase.subsBody": "Ödeme döngüsüne, kartına, döviz birimine ya da aile paylaşımına göre tek yerden süzersin.",
+  "showcase.themeTitle": "Temalar, yazı tipleri ve düzen",
+  "showcase.themeBody": "Hazır tema, vurgu rengi ve yazı tipi seçebilir, istersen kendi CSS ve HTML kartlarını ekleyebilirsin."
 }

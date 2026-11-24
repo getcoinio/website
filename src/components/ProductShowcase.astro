@@ -1,0 +1,71 @@
+---
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+
+const items = [
+  {
+    key: 'calendar',
+    titleKey: 'showcase.calendarTitle',
+    bodyKey: 'showcase.calendarBody',
+  },
+  {
+    key: 'reports',
+    titleKey: 'showcase.reportsTitle',
+    bodyKey: 'showcase.reportsBody',
+  },
+  {
+    key: 'subs',
+    file: 'subscriptions',
+    titleKey: 'showcase.subsTitle',
+    bodyKey: 'showcase.subsBody',
+  },
+  {
+    key: 'theme',
+    file: 'appearance',
+    titleKey: 'showcase.themeTitle',
+    bodyKey: 'showcase.themeBody',
+  },
+];
+---
+<section class="section" aria-labelledby="showcase-title">
+  <div class="section-head">
+    <p class="eyebrow">{t['showcase.eyebrow']}</p>
+    <h2 id="showcase-title"><Fragment set:html={t['showcase.title']} /></h2>
+  </div>
+  <div class="showcase-grid">
+    {items.map((item) => {
+      const name = item.file ?? item.key;
+      return (
+        <article class="showcase-card">
+          <div class="showcase-media">
+            <img
+              class="shot-dark"
+              src={`/assets/showcase/feature-${name}-dark.webp`}
+              alt={t[item.titleKey]}
+              width="960"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="shot-light"
+              src={`/assets/showcase/feature-${name}-light.webp`}
+              alt=""
+              width="960"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="showcase-copy">
+            <h3>{t[item.titleKey]}</h3>
+            <p>{t[item.bodyKey]}</p>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+</section>
